@@ -1,7 +1,7 @@
 require "pi_piper"
 include PiPiper
 
-watch :pin => 4 do
+watch :pin => 27 do
     puts value
   end
 
