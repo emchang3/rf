@@ -16,7 +16,7 @@ class RFController
             @signals["basement"]["main"]["on"]
         
         system("./codesend #{which}")
-        code = $?.split(" ")
+        code = $?.to_s.split(" ")
 
         if code == "0"
             @ledOut.on
