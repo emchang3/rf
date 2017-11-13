@@ -16,13 +16,13 @@ class RFController
             @signals["basement"]["main"]["on"]
         
         system("./codesend #{which}")
-        code = $?
-        puts "--- code: #{code}"
+        code = $?.split(" ")
 
-        if code == 0
+        if code == "0"
             @ledOut.on
             sleep 0.25
             @ledOut.off
+            @baseMainOn = !@baseMainOn
         end
     end
 end
