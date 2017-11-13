@@ -19,10 +19,11 @@ class RFController
         code = $?.to_s.split(" ")
 
         if code == "0"
+            puts "Was 0."
             @ledOut.on
             sleep 0.25
             @ledOut.off
-            @baseMainOn = !@baseMainOn
+            @baseMainOn ? @baseMainOn = false : @baseMainOn = true
         end
     end
 end
