@@ -16,7 +16,7 @@ class RFController
             @signals["basement"]["main"]["on"]
         
         system("./codesend #{which}")
-        code = $?.to_s.split(" ")
+        code = $?.to_s.split(" ").last
         puts "--- code: #{code}"
 
         if code == "0"
