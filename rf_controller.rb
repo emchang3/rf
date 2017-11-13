@@ -17,6 +17,7 @@ class RFController
         
         system("./codesend #{which}")
         code = $?.to_s.split(" ")
+        puts "--- code: #{code}"
 
         if code == "0"
             puts "Was 0."
