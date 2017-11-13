@@ -1,4 +1,8 @@
 require_relative "rf_controller"
 
 rfc = RFController.new
-rfc.sigOut
+while true do
+    input = gets.chomp
+    rfc.sigOut if input == "1"
+    break if input == "0"
+end
