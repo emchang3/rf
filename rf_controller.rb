@@ -16,6 +16,7 @@ class RFController
             @signals["basement"]["main"]["on"]
         
         soResult = `./codesend #{which}`
+        puts "--- soResult: #{soResult}"
         if soResult == 0
             @ledOut.on
             sleep 0.25
