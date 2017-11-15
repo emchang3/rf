@@ -6,8 +6,8 @@ class RFController
     def initialize
         @ledOut = PiPiper::Pin.new(pin: 4, direction: :out)
         @outlets = {
-            "basement": {
-                "main": "off"
+            "basement" => {
+                "main" => "off"
             }
         }
 
