@@ -15,11 +15,11 @@ class RFController
     end
 
     def sigOut(area, name)
-        return if @outlet[:"#{area}"].nil? || @outlet[:"#{area}"][:"#{name}"].nil?
+        return if @outlets[area].nil? || @outlets[area][name].nil?
 
-        which = @outlets[:"#{area}"][:"#{name}"] == "on" ?
-            @signals[:"#{area}"][:"#{name}"]["off"] :
-            @signals[:"#{area}"][:"#{name}"]["on"]
+        which = @outlets[area][name] == "on" ?
+            @signals[area][name]["off"] :
+            @signals[area][name]["on"]
         
         system("./codesend #{which} 0 175")
 
