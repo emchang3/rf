@@ -16,7 +16,7 @@ class RFController
             @signals["basement"]["main"]["on"]
         
         system("./codesend #{which} 0 175")
-        code = $?.exitStatus
+        code = $?.exitstatus
         puts "--- code: #{code}"
 
         if code == 0
