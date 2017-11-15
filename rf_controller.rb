@@ -15,11 +15,11 @@ class RFController
             @signals["basement"]["main"]["off"] :
             @signals["basement"]["main"]["on"]
         
-        system("./codesend #{which}")
-        code = $?.to_s.split(" ").last
+        system("./codesend #{which} 0 175")
+        code = $?.exitStatus
         puts "--- code: #{code}"
 
-        if code == "0"
+        if code == 0
             puts "Was 0."
             @ledOut.on
             sleep 0.25
