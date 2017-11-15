@@ -28,7 +28,9 @@ class RFController
             @ledOut.on
             sleep 0.25
             @ledOut.off
-            @baseMainOn ? @baseMainOn = false : @baseMainOn = true
+            @outlets[area][name] == "on" ?
+                @outlets[area][name] = "off" :
+                @outlets[area][name] = "on"
         end
     end
 end
