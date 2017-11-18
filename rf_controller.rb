@@ -8,6 +8,9 @@ class RFController
         @outlets = {
             "basement" => {
                 "main" => "off"
+            },
+            "living" => {
+                "front" => "off"
             }
         }
 
