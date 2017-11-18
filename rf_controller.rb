@@ -6,21 +6,25 @@ class RFController
     def initialize
         @ledOut = PiPiper::Pin.new(pin: 4, direction: :out)
         @outlets = {
-            "basement" => { "main" => "off" },
-            "living" => { "front" => "off" },
-            "bed" => { "head" => "off" }
+            # "basement" => { "main" => "off" },
+            # "living" => { "front" => "off" },
+            # "bed" => { "head" => "off" }
         }
 
         @signals = YAML.load_file("signals.yml")
 
         @signals.each do |a, b|
-            puts "#{a}: #{b}"
-            puts "-----"
+            # puts "#{a}: #{b}"
+            # puts "-----"
+            @outlets[a] = {}
             b.each do |c, d|
-                puts "#{c}: #{d}"
-                puts "-----"
+                # puts "#{c}: #{d}"
+                # puts "-----"
+                @outlets[a][c] = "off"
             end
         end
+
+        puts "--- @outlets: #{@outlets}"
     end
 
     def sigOut(area, name)
