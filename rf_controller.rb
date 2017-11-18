@@ -5,26 +5,19 @@ include PiPiper
 class RFController
     def initialize
         @ledOut = PiPiper::Pin.new(pin: 4, direction: :out)
-        @outlets = {
-            # "basement" => { "main" => "off" },
-            # "living" => { "front" => "off" },
-            # "bed" => { "head" => "off" }
-        }
-
         @signals = YAML.load_file("signals.yml")
+        @outlets = {}
 
         @signals.each do |a, b|
-            # puts "#{a}: #{b}"
-            # puts "-----"
             @outlets[a] = {}
-            b.each do |c, d|
-                # puts "#{c}: #{d}"
-                # puts "-----"
-                @outlets[a][c] = "off"
-            end
+            b.each { |c, d| @outlets[a][c] = "off" }
         end
+    end
 
-        puts "--- @outlets: #{@outlets}"
+    def flashLED
+        @ledOut.on
+        sleep 0.25
+        @ledOut.off
     end
 
     def sigOut(area, name)
@@ -38,9 +31,7 @@ class RFController
 
         code = $?.exitstatus
         if code == 0
-            @ledOut.on
-            sleep 0.25
-            @ledOut.off
+            self.flashLED
             @outlets[area][name] == "on" ?
                 @outlets[area][name] = "off" :
                 @outlets[area][name] = "on"
