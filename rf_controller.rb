@@ -15,6 +15,11 @@ class RFController
 
         @signals.each do |a, b|
             puts "#{a}: #{b}"
+            puts "-----"
+            b.each do |c, d|
+                puts "#{c}: #{d}"
+                puts "-----"
+            end
         end
     end
 
