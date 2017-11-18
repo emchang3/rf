@@ -2,7 +2,13 @@ basement:
   main:
     "on": 5526835
     "off": 5526844
+
 living:
   front:
-    "on": 552679
+    "on": 5526979
     "off": 5526988
+
+bed:
+  head:
+    "on": 5527299
+    "off": 5527308

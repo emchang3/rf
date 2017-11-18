@@ -11,6 +11,9 @@ class RFController
             },
             "living" => {
                 "front" => "off"
+            },
+            "bed" => {
+                "head" => "off"
             }
         }
 
